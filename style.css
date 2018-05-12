@@ -1,0 +1,153 @@
+a {
+	color: #fff;
+}
+
+body {
+	background: #c6c5d3;
+	font-family: "Times New Roman";
+	font-size: 13px;
+}
+header {
+	background: linear-gradient(to right, #081c58 , #163ba5, #081c58);
+	border-bottom: solid #fff 1px;
+}
+
+header .row {
+	padding-top: 45px;
+	padding-bottom: 45px;
+	color: #fff;
+}
+
+header .row .name h2{
+	margin-top: 2px;
+	font-size: 24px;
+}
+header .row .name h1 {
+	font-size: 30px;
+}
+
+nav {
+	background: #071b56;
+}
+
+.navbar {
+	border-radius: 0px;
+	margin-bottom: 0px;
+	border-bottom: 1px solid #fff;
+}
+
+.navbar .row .collapse ul li a:hover {
+	background: #0f2a79;
+	color:  #fff;
+} 
+
+.navbar-brand:hover {
+	color:  #fff;
+}
+
+.dropdown-menu{
+	background-color: #071b56;
+}
+
+.dropdown-menu > li > a{
+	color: #fff;
+}
+
+.navbar .row .collapse ul li a:focus{
+	background-color: #0f2a79;
+	color: #fff;
+}
+
+.icon-bar {
+	background-color: #fff;
+}
+
+
+main {
+	background: #fff;
+	padding-bottom: 30px;
+}
+#title {
+	border-bottom: 2px solid #e8195f;
+	margin-bottom: 28px;
+}
+
+#title .row .title {
+	background: #e8195f;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+}
+
+
+#title .row .title h3 {
+	color: #fff;
+}
+
+#bantin .row .bantin a {
+	color: #000;
+}
+
+#bantin .row .tinnho a {
+	color: #000;
+}
+
+#chuongtrinh .row .chuongtrinh h4 a {
+	color: #000;
+}
+
+footer {
+	background: #081c58;
+	color: #fff;
+}
+
+@media screen and (max-width: 960px){
+	header .row .name h2 {
+		font-size: 18px;
+	}
+	header .row .name h1 {
+		font-size: 20px;
+	}
+
+	#title .row .title h3 {
+		font-size: 18px;
+	}
+
+	.chongHangGia {
+		margin-bottom: 20px;
+	}
+
+	#chuongtrinh .row .chuongtrinh a {
+		font-size: 14px;
+	}
+
+	.lienHe {
+		text-align: left;
+	}
+
+	footer {
+		padding-bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	header .row .name h2 {
+		font-size: 18px;
+		margin-top: 30px;
+
+	}
+	header .row .name h1 {
+		font-size: 20px;
+	}
+
+	#title .row .title h3 {
+		font-size: 14px;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+	.navbar-brand{
+		font-size: 16px;
+	}
+	.trungTam h4 {
+		font-size: 14px;
+	}
+}
