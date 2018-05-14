@@ -26,7 +26,7 @@
                 <a href="dangxuat.php">Thoat</a>
             </div>
 
-            <div class="content col-md-10">
+            <div class="content container col-md-10">
                 <?php
                     if(isset($_GET['tpl'])){
                         include_once 'tpl/' . $_GET['tpl']. '.php';
