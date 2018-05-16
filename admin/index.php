@@ -18,15 +18,15 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidenav col-md-2">
-                <a href="index.php">DASHBOARD</a>
-                <a href="?tpl=baiviet/ds">Bai viet</a>
-                <a href="?tpl=chuyenmuc/ds">Chuyen muc</a>
-                <a href="?tpl=nguoidung/ds">Nguoi dung</a>
-                <a href="dangxuat.php">Thoat</a>
+        <div class="sidenav navbar navbar-inverse col-md-2">
+            <a href="index.php">DASHBOARD</a>
+            <a href="?tpl=baiviet/ds">Bai viet</a>
+            <a href="?tpl=chuyenmuc/ds">Chuyen muc</a>
+            <a href="?tpl=nguoidung/ds">Nguoi dung</a>
+            <a href="dangxuat.php">Thoat</a>
             </div>
 
-            <div class="content container col-md-10">
+            <div class="content col-md-10">
                 <?php
                     if(isset($_GET['tpl'])){
                         include_once 'tpl/' . $_GET['tpl']. '.php';

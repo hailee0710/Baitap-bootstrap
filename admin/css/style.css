@@ -1,28 +1,20 @@
-.sidenav {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
 .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181; 
-    display: block;
-}
-
-.sidenav a:last-child{
-    bottom: 0;
-    left:25%;
-    position: absolute;
+    color: #fff; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+    overflow-x: auto;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.sidenav a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+.sidenav {
+    padding-bottom: 39%;
 }
