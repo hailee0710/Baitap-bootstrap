@@ -13,9 +13,9 @@
 ?>
 
 <div class="content">
-    <h2>Danh Sach nguoi dung</h2>
-    <a href="?tpl=nguoidung/them" class="btn btn-primary">Them nguoi dung</a>
-    <table class="table table-bordered">
+    <h2 class="col-md-10">Danh Sach nguoi dung</h2>
+    <a href="?tpl=nguoidung/them" class="them btn btn-primary col-md-2">Them nguoi dung</a>
+    <table class="table table-bordered col-md-12">
     <thead>
       <tr>
         <th>STT</th>

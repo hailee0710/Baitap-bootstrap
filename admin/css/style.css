@@ -3,7 +3,8 @@
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove underline from links */
-    overflow-x: auto;
+    overflow-x: hidden;
+    font-size: 26px;
 }
 
 .sidenav a:hover {
@@ -17,4 +18,20 @@
 
 .sidenav {
     padding-bottom: 39%;
+}
+.glyphicon {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.back{
+    padding: 0;
+    color: #000;
+}
+
+.content .them {
+    margin-top: 20px;
+}
+.table {
+    margin-top: 20px;
 }
