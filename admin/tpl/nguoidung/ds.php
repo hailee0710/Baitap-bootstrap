@@ -35,8 +35,8 @@
         <td><?php echo $r -> tendangnhap?></td>
         <td><?php echo $r -> matkhau?></td>
         <td>
-            <a href="?tpl=nguoidung/sua&id= <?php echo $r -> id?>" class="btn btn_default">Sua</a>
-            <a href="?tpl=nguoidung/ds&id= <?php echo $r -> id?>" class="btn btn_default">Xoa</a>
+            <a href="?tpl=nguoidung/sua&id= <?php echo $r -> id?>" class="btn btn_primary">Sua</a>
+            <a href="?tpl=nguoidung/ds&id= <?php echo $r -> id?>" class="btn btn_danger">Xoa</a>
         </td>
       </tr>
       <?php

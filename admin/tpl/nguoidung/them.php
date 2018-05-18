@@ -19,12 +19,13 @@
             echo "<div class='alert alert-danger'>Ban chua nhap mat khau</div>";
             $kt=false;
         }
+       
         if($matkhau2 != $matkhau){
-            echo "<div class='alert alert-danger'>Mat khau khong khop</div>";
+            echo "<div class='alert alert-danger'>Mat khau khong dung</div>";
             $kt=false;
         }
 
-        if($kt=true){
+        if($kt==true){
             $sql = "INSERT INTO tbl_nguoidung (tenhienthi, tendangnhap, matkhau) VALUES ('$tenhienthi', '$tendangnhap', '$matkhau');";
 
             if(mysql_query($sql)){
