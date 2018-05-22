@@ -29,7 +29,7 @@
             $kt=false;
         }
 
-        if($kt=true && $matkhau2 == $matkhau){
+        if($kt==true && $matkhau2 == $matkhau){
             $sql = "UPDATE tbl_nguoidung SET tenhienthi = '$tenhienthi', tendangnhap = '$tendangnhap', matkhau = '$matkhau' WHERE id = {$_GET['id']};";
 
             if(mysql_query($sql)){
