@@ -8,12 +8,25 @@
             echo "<div class='alert alert-danger'>Xoa that bai</div>";
         }
     }
+
+    //phan trang
+    $tongsodong = mysql_num_rows(mysql_query("SELECT id FROM tbl_baiviet"));
+    $dong1trang = 10;
+    $sotrang = $tongsodong/$dong1trang;
+    $tranghientai = isset($_GET['p'])?(int) $_GET['p']:0;
+    $dongbatdau = $tranghientai * $dong1trang;
+    $trangtruoc = ($tranghientai > 0)? $tranghientai - 1:0;
+    $trangsau = ($tranghientai < $sotrang)? $tranghientai + 1:round($sotrang);
+
+
     $sql="SELECT bv.id, bv.tieude, bv.mota, bv.noidung, bv.ngayviet, bv.anh, bv.dang, bv.sapxep , 
                 cm.ten AS tenchuyenmuc, 
                 nd.tenhienthi AS tacgia 
             FROM tbl_baiviet AS bv 
                 LEFT JOIN tbl_chuyenmuc AS cm ON bv.chuyenmuc=cm.id
-                LEFT JOIN tbl_nguoidung AS nd ON bv.nguoiviet=nd.id;
+                LEFT JOIN tbl_nguoidung AS nd ON bv.nguoiviet=nd.id
+            ORDER BY bv.sapxep ASC
+            LIMIT $dongbatdau, $dong1trang;
                 ";
     $query=mysql_query($sql);
 ?>
@@ -60,4 +73,11 @@
       ?>
     </tbody>
   </table>
+  <ul class="pagination">
+  <li><a href="?tpl=baiviet/ds&p=<?php echo $trangtruoc?>">Previous</a></li>
+  <?php for($p = 0; $p<$sotrang; $p++):?>
+  <li><a href="?tpl=baiviet/ds&p=<?php echo $p?>"><?php echo $p+1?></a></li>
+    <?php endfor; ?>
+  <li><a href="?tpl=baiviet/ds&p=<?php echo $trangsau?>">Next</a></li>
+</ul> 
 </div>
