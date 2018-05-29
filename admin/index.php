@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row">
         <div class="sidenav navbar navbar-inverse col-md-2">
-            <a href="index.php">DASHBOARD</a>
+            <a href="index.php">HOME</a>
             <a href="?tpl=baiviet/ds">Bai viet</a>
             <a href="?tpl=chuyenmuc/ds">Chuyen muc</a>
             <a href="?tpl=nguoidung/ds">Nguoi dung</a>

@@ -4,7 +4,7 @@
     $nd= mysql_query($sqlnd);
     $sua = mysql_fetch_object($nd);
     
-    if(isset($_POST['them'])){
+    if(isset($_POST['sua'])){
         $ten = $_POST['ten'];
         $ghichu = $_POST['ghichu'];
         $chuyenmuc = $_POST['chuyenmuc'];
@@ -37,7 +37,7 @@
 ?>
 
 
-  <a href="?tpl=chuyenmuc/ds" class="back col-md-1"><span class="glyphicon glyphicon-chevron-left"></span></a><h2 class="col-md-6">Them chuyen muc</h2>
+  <a href="?tpl=chuyenmuc/ds" class="back col-md-1"><span class="glyphicon glyphicon-chevron-left"></span></a><h2 class="col-md-6">Sua chuyen muc</h2>
   <form method="post" class="col-md-12">
     <div class="form-group">
       <label for="ten">Ten chuyen muc:</label>
@@ -53,7 +53,7 @@
             <option>Chon chuyen muc cha (Chon muc nay de xoa chuyen muc cha)</option>
             <?php
                 $stt=1;
-                $laychuyenmuc = mysql_query("SELECT * FROM tbl_chuyenmuc");
+                $laychuyenmuc = mysql_query("SELECT id, ten FROM tbl_chuyenmuc");
                 while($r = mysql_fetch_object($laychuyenmuc)):?>
 
             <option  value ="<?php echo $r -> id?>"><?php echo $r -> ten?></option>
@@ -65,6 +65,6 @@
             
         </select>
         </div>
-    <button type="submit" class="btn btn-default" name="them">Submit</button>
-    <button type="reset" class="btn btn-danger">Nhap lai</button>
+    <button type="submit" class="btn btn-success" name="sua">Cap nhat</button>
+    <button type="reset" class="btn btn-warning">Nhap lai</button>
   </form>

@@ -62,6 +62,6 @@
       <label for="pwd">Nhap lai mat khau:</label>
       <input type="password" class="form-control" name="matkhau2" placeholder="Nhap mat khau" name="pwd2">
     </div>
-    <button type="submit" class="btn btn-default" name="them">Submit</button>
-    <button type="reset" class="btn btn-danger">Nhap lai</button>
+    <button type="submit" class="btn btn-success" name="them">Submit</button>
+    <button type="reset" class="btn btn-warning">Nhap lai</button>
   </form>

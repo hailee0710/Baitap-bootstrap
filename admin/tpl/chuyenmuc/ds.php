@@ -35,8 +35,8 @@
         <td><?php echo $r -> ghichu?></td>
         <td><?php echo $r -> tencha?></td>
         <td>
-            <a href="?tpl=chuyenmuc/sua&id= <?php echo $r -> id?>" class="btn btn_primary">Sua</a>
-            <a href="?tpl=chuyenmuc/ds&id= <?php echo $r -> id?>" class="btn btn_danger">Xoa</a>
+            <a href="?tpl=chuyenmuc/sua&id= <?php echo $r -> id?>" class="btn btn-primary">Sua</a>
+            <a href="?tpl=chuyenmuc/ds&id= <?php echo $r -> id?>" class="btn btn-danger">Xoa</a>
         </td>
       </tr>
       <?php
