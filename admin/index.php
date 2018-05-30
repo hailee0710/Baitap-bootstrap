@@ -13,6 +13,12 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script>
+    window.onload = function() {
+        CKEDITOR.replace( 'noidung' );
+    };
+</script>
 
 </head>
 <body>
