@@ -40,12 +40,11 @@
         <th>STT</th>
         <th>Tieu de</th>
         <th>Mo ta</th>
-        <th>Noi dung</th>
         <th>Ngay viet</th>
         <th>Anh</th>
-        <th>Dang</th>
         <th>Chuyen muc</th>
         <th>Tac gia</th>
+        <th>Tac vu</th>
       </tr>
     </thead>
     <tbody>
@@ -54,12 +53,10 @@
         while($r=mysql_fetch_object($query)):?>
       <tr>
         <td><?php echo $stt?></td>
-        <td><div class="bv"><?php echo $r -> tieude?></div></td>
-        <td><div class="bv"><?php echo $r -> mota?></div></td>
-        <td><div class="bv"><?php echo $r -> noidung?></div></td>
+        <td><div class="bv"><?php echo substr($r -> tieude, 0, 100).'...'?></div></td>
+        <td><div class="bv"><?php echo substr($r -> mota, 0, 100).'...'?></div></td>
         <td><div class="bv"><?php echo $r -> ngayviet?></div></td>
-        <td><div class="bv"><?php echo $r -> anh?></div></td>
-        <td><div class="bv"><?php echo $r -> dang?></div></td>
+        <td><div class="bv"><img src="../images/<?php echo $r -> anh?>" alt="anhbv" class="img-responsive"></div></td>
         <td><div class="bv"><?php echo $r -> tenchuyenmuc?></div></td>
         <td><div class="bv"><?php echo $r -> tacgia?></div></td>
         <td>
