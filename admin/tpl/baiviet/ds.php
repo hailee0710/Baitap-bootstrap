@@ -54,14 +54,14 @@
         while($r=mysql_fetch_object($query)):?>
       <tr>
         <td><?php echo $stt?></td>
-        <td><?php echo $r -> tieude?></td>
-        <td><?php echo $r -> mota?></td>
-        <td class="noidung"><?php echo $r -> noidung?></td>
-        <td><?php echo $r -> ngayviet?></td>
-        <td><?php echo $r -> anh?></td>
-        <td><?php echo $r -> dang?></td>
-        <td><?php echo $r -> tenchuyenmuc?></td>
-        <td><?php echo $r -> tacgia?></td>
+        <td><div class="bv"><?php echo $r -> tieude?></div></td>
+        <td><div class="bv"><?php echo $r -> mota?></div></td>
+        <td><div class="bv"><?php echo $r -> noidung?></div></td>
+        <td><div class="bv"><?php echo $r -> ngayviet?></div></td>
+        <td><div class="bv"><?php echo $r -> anh?></div></td>
+        <td><div class="bv"><?php echo $r -> dang?></div></td>
+        <td><div class="bv"><?php echo $r -> tenchuyenmuc?></div></td>
+        <td><div class="bv"><?php echo $r -> tacgia?></div></td>
         <td>
             <a href="?tpl=baiviet/sua&id= <?php echo $r -> id?>" class="btn btn-primary">Sua</a>
             <a href="?tpl=baiviet/ds&id= <?php echo $r -> id?>" class="btn btn-danger">Xoa</a>
@@ -73,11 +73,11 @@
       ?>
     </tbody>
   </table>
-  <ul class="pagination">
-  <li><a href="?tpl=baiviet/ds&p=<?php echo $trangtruoc?>">Previous</a></li>
-  <?php for($p = 0; $p<$sotrang; $p++):?>
-  <li><a href="?tpl=baiviet/ds&p=<?php echo $p?>"><?php echo $p+1?></a></li>
+  <ul class="pagination col-md-12">
+    <li><a href="?tpl=baiviet/ds&p=<?php echo $trangtruoc?>">Previous</a></li>
+    <?php for($p = 0; $p<$sotrang; $p++):?>
+    <li><a href="?tpl=baiviet/ds&p=<?php echo $p?>"><?php echo $p+1?></a></li>
     <?php endfor; ?>
-  <li><a href="?tpl=baiviet/ds&p=<?php echo $trangsau?>">Next</a></li>
-</ul> 
+     <li><a href="?tpl=baiviet/ds&p=<?php echo $trangsau?>">Next</a></li>
+    </ul> 
 </div>

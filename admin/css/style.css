@@ -34,12 +34,14 @@
 }
 .table {
     margin-top: 20px;
+    table-layout:fixed;
+    width:100%;
 }
 
-.table .noidung {
-    max-width: 200px;
-    white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis;
-
+.table .bv {
+    word-break:break;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: normal; 
+  max-height: 100px;
 }
