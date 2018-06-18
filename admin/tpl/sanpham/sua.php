@@ -1,18 +1,21 @@
 <?php
 
-    $laybaiviet = mysql_fetch_object(mysql_query("SELECT bv.id, bv.tieude, bv.mota, bv.noidung, bv.ngayviet, bv.anh, bv.dang, bv.sapxep , 
+    $laysanpham = mysql_fetch_object(mysql_query("SELECT sp.id, sp.tensp, sp.masp, sp.noidung, sp.mota, sp.anh, sp.xuatxu, sp.tinhtrang, sp.gia, sp.nguoitao, sp.chuyenmuc,
                         cm.ten AS tenchuyenmuc, cm.id AS idcm,
                         nd.tenhienthi AS tacgia 
-                    FROM tbl_baiviet AS bv 
-                    LEFT JOIN tbl_chuyenmuc AS cm ON bv.chuyenmuc=cm.id AND bv.id = {$_GET['id']}
-                    LEFT JOIN tbl_nguoidung AS nd ON bv.nguoiviet=nd.id AND bv.id = {$_GET['id']}"));
+                    FROM tbl_sanpham AS sp 
+                    LEFT JOIN tbl_chuyenmuc AS cm ON sp.chuyenmuc=cm.id AND sp.id = {$_GET['id']}
+                    LEFT JOIN tbl_nguoidung AS nd ON sp.nguoitao=nd.id AND sp.id = {$_GET['id']}"));
     
     if(isset($_POST['sua'])){
-        $tieude = $_POST['tieude'];
+        $tensp = $_POST['tensp'];
+        $masp = $_POST['masp'];
+        $gia = $_POST['gia'];
         $mota = $_POST['mota'];
+        $tinhtrang = $_POST['tinhtrang'];
+        $xuatxu = $_POST['xuatxu'];
         $noidung = $_POST['noidung'];
-        $anh = '';
-        $sapxep = $_POST['sapxep'];
+        $nguoitao = $_SESSION['tk']['id'];
         $chuyenmuc = $_POST['chuyenmuc'];
         $kt=true;
 
@@ -36,11 +39,18 @@
 
         $kt=true;
 
-        if(trim($tieude) == ''){
-            echo "<div class='alert alert-danger'>Ban chua nhap tieu de</div>";
+        if(trim($tensp) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap ten san pham</div>";
             $kt=false;
         }
-
+        if(trim($masp) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap ma san pham</div>";
+            $kt=false;
+        }
+        if(trim($gia) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap gia san pham</div>";
+            $kt=false;
+        }
         if(trim($mota) == ''){
             echo "<div class='alert alert-danger'>Ban chua nhap mo ta</div>";
             $kt=false;
@@ -49,9 +59,17 @@
             echo "<div class='alert alert-danger'>Ban chua nhap noi dung</div>";
             $kt=false;
         }
+        if(trim($xuatxu) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap xuat xu</div>";
+            $kt=false;
+        }
+        if(trim($tinhtrang) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap tinh trang</div>";
+            $kt=false;
+        }
 
         if($kt==true){
-            $sql = "UPDATE tbl_baiviet SET tieude = '$tieude', mota = '$mota', noidung = '$noidung', anh = '$anh', sapxep = '$sapxep', chuyenmuc = '$chuyenmuc' WHERE id = {$_GET['id']};";
+            $sql = "UPDATE tbl_sanpham SET tensp = '$tensp', mota = '$mota', noidung = '$noidung', anh = '$anh', gia = '$gia', chuyenmuc = '$chuyenmuc', masp = '$masp', tinhtrang = '$tinhtrang', xuatxu = '$xuatxu', nguoitao = '$nguoitao' WHERE id = {$_GET['id']};";
 
             if(mysql_query($sql)){
                 echo "<div class='alert alert-success'>Sua thanh cong!</div>";
@@ -65,19 +83,35 @@
 ?>
 
 
-   <a href="?tpl=baiviet/ds" class="back col-md-1"><span class="glyphicon glyphicon-chevron-left"></span></a><h2 class="col-md-6">Sua bai viet</h2>
+   <a href="?tpl=sanpham/ds" class="back col-md-1"><span class="glyphicon glyphicon-chevron-left"></span></a><h2 class="col-md-6">Sua san pham</h2>
   <form method="POST" enctype="multipart/form-data" class="col-md-12">
     <div class="form-group">
-      <label for="ten" >Tieu de: </label>
-      <input type="text" class="form-control" name="tieude" value="<?php echo $laybaiviet -> tieude?>">
+      <label for="tensp" >Ten san pham: </label>
+      <input type="text" class="form-control" name="tensp" value="<?php echo $laysanpham -> tensp?>">
+    </div>
+    <div class="form-group">
+      <label for="masp" >Ma san pham: </label>
+      <input type="text" class="form-control" name="masp" value="<?php echo $laysanpham -> masp?>">
+    </div>
+    <div class="form-group">
+      <label for="gia" >Gia san pham: </label>
+      <input type="text" class="form-control" name="gia" value="<?php echo $laysanpham -> gia?>">
     </div>
     <div class="form-group">
       <label for="mota">Mo ta:</label>
-      <input type="text" class="form-control" name="mota" value="<?php echo $laybaiviet -> mota?>">
+      <input type="text" class="form-control" name="mota" value="<?php echo $laysanpham -> mota?>">
+    </div>
+    <div class="form-group">
+      <label for="tinhtrang" >Tinh trang san pham: </label>
+      <input type="text" class="form-control" name="tinhtrang" value="<?php echo $laysanpham -> tinhtrang?>">
+    </div>
+    <div class="form-group">
+      <label for="xuatxu" >Xuat xu san pham: </label>
+      <input type="text" class="form-control" name="xuatxu" value="<?php echo $laysanpham -> xuatxu?>">
     </div>
     <div class="form-group">
       <label for="noidung">Noi dung:</label>
-      <textarea id="noidung" class="form-control" name="noidung" value="<?php echo $laybaiviet -> noidung?>"></textarea>
+      <textarea id="noidung" class="form-control" name="noidung" value="<?php echo $laysanpham -> noidung?>"></textarea>
     </div>
     <div class="form-group col-md-6">
     <div class="form-group">
@@ -85,18 +119,14 @@
       <input type="file" class="form-control"  name="upanh" id="anh">
     </div>
     <div class="form-group col-md-6">
-      <label for="nguoiviet">Tac gia:</label>
+      <label for="nguoitao">Nguoi tao:</label>
       <p class ="text-info"><?php 
       echo $_SESSION['tk']['hienthi']?></p>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="sapxep">Thu tu:</label>
-      <input type="text" class="form-control" name="sapxep" value="<?php echo $laybaiviet -> sapxep?>">
     </div>
     <div class="form-group">
         <label for="chuyenmuc">Chuyen muc:</label>
         <select class="form-control" name= "chuyenmuc">
-            <option value ="<?php echo $laybaiviet -> idcm?>"><?php echo $laybaiviet -> tenchuyenmuc?></option>
+            <option value ="<?php echo $laysanpham -> idcm?>"><?php echo $laysanpham -> tenchuyenmuc?></option>
             <?php
                 
                 $laychuyenmuc = mysql_query("SELECT id, ten FROM tbl_chuyenmuc");

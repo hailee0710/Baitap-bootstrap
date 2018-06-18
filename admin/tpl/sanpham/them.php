@@ -1,14 +1,15 @@
 <?php
     if(isset($_POST['them'])){
-        $tieude = $_POST['tieude'];
+        $tensp = $_POST['tensp'];
+        $masp = $_POST['masp'];
+        $gia = $_POST['gia'];
         $mota = $_POST['mota'];
+        $tinhtrang = $_POST['tinhtrang'];
+        $xuatxu = $_POST['xuatxu'];
         $noidung = $_POST['noidung'];
-        $nguoiviet = $_SESSION['tk']['id'];
-        $sapxep = $_POST['sapxep'];
+        $nguoitao = $_SESSION['tk']['id'];
         $chuyenmuc = $_POST['chuyenmuc'];
-        $ngayviet = strtotime(date_default_timezone_set('Asia/Ho_Chi_Minh'));
-        $ngayviet = date_create( $ngayviet);
-        $ngayviet = date_format($ngayviet, 'Y-m-d H:i:s'); 
+       
         $anh = '';
 
          $kt=true;
@@ -33,8 +34,16 @@
 
        
 
-        if(trim($tieude) == ''){
-            echo "<div class='alert alert-danger'>Ban chua nhap tieu de</div>";
+        if(trim($tensp) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap ten san pham</div>";
+            $kt=false;
+        }
+        if(trim($masp) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap ma san pham</div>";
+            $kt=false;
+        }
+        if(trim($gia) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap gia san pham</div>";
             $kt=false;
         }
         if(trim($mota) == ''){
@@ -45,13 +54,16 @@
             echo "<div class='alert alert-danger'>Ban chua nhap noi dung</div>";
             $kt=false;
         }
-        if(trim($sapxep) == ''){
-            $laythutulonnhat = mysql_fetch_object(mysql_query("SELECT MAX(sapxep) AS ttlonnhat FROM tbl_baiviet"));
-            $thutu = $laythutulonnhat -> ttlonnhat;
-            $sapxep = $thutu +1;  
+        if(trim($xuatxu) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap xuat xu</div>";
+            $kt=false;
+        }
+        if(trim($tinhtrang) == ''){
+            echo "<div class='alert alert-danger'>Ban chua nhap tinh trang</div>";
+            $kt=false;
         }
         if($kt==true){
-            $sql = "INSERT INTO tbl_baiviet(tieude, mota, noidung, ngayviet, nguoiviet, anh, chuyenmuc, sapxep) VALUES ('$tieude','$mota','$noidung','$ngayviet','$nguoiviet','$anh','$chuyenmuc','$sapxep');";
+            $sql = "INSERT INTO tbl_sanpham(tensp, masp, gia, mota, noidung, tinhtrang, xuatxu, nguoitao, anh, chuyenmuc) VALUES ('$tensp','$masp','$gia','$mota','$noidung','$tinhtrang','$xuatxu','$nguoitao','$anh','$chuyenmuc');";
 
             if(mysql_query($sql)){
                 echo "<div class='alert alert-success'>Them thanh cong!</div>";
@@ -65,15 +77,31 @@
 ?>
 
 
-  <a href="?tpl=baiviet/ds" class="back col-md-1"><span class="glyphicon glyphicon-chevron-left"></span></a><h2 class="col-md-6">Them bai viet</h2>
+  <a href="?tpl=sanpham/ds" class="back col-md-1"><span class="glyphicon glyphicon-chevron-left"></span></a><h2 class="col-md-6">Them san pham</h2>
   <form method="POST" enctype="multipart/form-data" class="col-md-12">
     <div class="form-group">
-      <label for="ten" >Tieu de: </label>
-      <input type="text" class="form-control" name="tieude" placeholder="Nhap tieu de bai viet">
+      <label for="tensanpham" >Ten san pham: </label>
+      <input type="text" class="form-control" name="tensp" placeholder="Nhap ten san pham">
+    </div>
+    <div class="form-group">
+      <label for="masp">Ma san pham:</label>
+      <input type="text" class="form-control" name="masp" placeholder="Nhap ma san pham">
+    </div>
+    <div class="form-group">
+      <label for="gia">Gia san pham:</label>
+      <input type="text" class="form-control" name="gia" placeholder="Nhap gia san pham">
     </div>
     <div class="form-group">
       <label for="mota">Mo ta:</label>
-      <input type="text" class="form-control" name="mota" placeholder="Nhap mo ta">
+      <input type="text" class="form-control" name="mota" placeholder="Nhap mo ta san pham">
+    </div>
+    <div class="form-group">
+      <label for="tinhtrang">Tinh Trang:</label>
+      <input type="text" class="form-control" name="tinhtrang" placeholder="Nhap tinh trang cua san pham">
+    </div>
+    <div class="form-group">
+      <label for="xuatxu">Xuat xu:</label>
+      <input type="text" class="form-control" name="xuatxu" placeholder="Nhap xuat xu san pham">
     </div>
     <div class="form-group">
       <label for="noidung">Noi dung:</label>
@@ -85,13 +113,9 @@
       <input type="file" class="form-control"  name="upanh" id="anh">
     </div>
     <div class="form-group col-md-6">
-      <label for="nguoiviet">Tac gia:</label>
+      <label for="nguoitao">Nguoi tao:</label>
       <p class ="text-info"><?php 
       echo $_SESSION['tk']['hienthi']?></p>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="sapxep">Thu tu:</label>
-      <input type="text" class="form-control" name="sapxep" placeholder="Nhap thu tu bai viet">
     </div>
     <div class="form-group">
         <label for="chuyenmuc">Chuyen muc:</label>

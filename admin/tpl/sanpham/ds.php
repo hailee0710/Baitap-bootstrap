@@ -55,8 +55,8 @@
         <td><div class="bv"><?php echo substr($r -> mota, 0, 100).'...'?></div></td>
         <td><div class="bv"><?php echo $r -> tenchuyenmuc?></div></td>
         <td>
-            <a href="?tpl=baiviet/sua&id= <?php echo $r -> id?>" class="btn btn-primary">Sua</a>
-            <a href="?tpl=baiviet/ds&id= <?php echo $r -> id?>" class="btn btn-danger">Xoa</a>
+            <a href="?tpl=sanpham/sua&id= <?php echo $r -> id?>" class="btn btn-primary">Sua</a>
+            <a href="?tpl=sanpham/ds&id= <?php echo $r -> id?>" class="btn btn-danger">Xoa</a>
         </td>
       </tr>
       <?php
