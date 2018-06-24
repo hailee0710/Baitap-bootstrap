@@ -31,6 +31,7 @@
             <a href="?tpl=nguoidung/ds">Nguoi dung</a>
             <a href="?tpl=sanpham/ds">San Pham</a>
             <a href="?tpl=khachhang/ds">Khach Hang</a>
+            <a href="?tpl=anh/ds">Bo suu tap anh</a>
             <a href="dangxuat.php">Thoat</a>
             </div>
 
