@@ -84,7 +84,7 @@
         while($r=mysql_fetch_object($query)):?>
       <tr>
         <td><?php echo $stt?></td>
-        <td><div class="bv"><img src="../images/<?php echo $r -> anh?>" alt="anhbv" class="img-responsive"></div></td>
+        <td><div class="bv"><img src="../images/<?php echo $r -> anh?>" alt="anhbv" class="img-responsive" style="max-width: 150px"></div></td>
         <td>
             <a href="?tpl=anh/ds&id= <?php echo $r -> id?>" class="btn btn-danger">Xoa</a>
         </td>

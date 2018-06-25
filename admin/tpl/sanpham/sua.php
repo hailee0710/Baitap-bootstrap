@@ -1,12 +1,13 @@
 <?php
 
-    $laysanpham = mysql_fetch_object(mysql_query("SELECT sp.id, sp.tensp, sp.masp, sp.noidung, sp.mota, sp.anh, sp.xuatxu, sp.tinhtrang, sp.gia, sp.nguoitao, sp.chuyenmuc,
+    $laysanpham = mysql_fetch_object(mysql_query("SELECT sp.tensp, sp.masp, sp.noidung, sp.mota, sp.anh, sp.xuatxu, sp.tinhtrang, sp.gia, sp.nguoitao, sp.chuyenmuc,
                         cm.ten AS tenchuyenmuc, cm.id AS idcm,
                         nd.tenhienthi AS tacgia 
                     FROM tbl_sanpham AS sp 
                     LEFT JOIN tbl_chuyenmuc AS cm ON sp.chuyenmuc=cm.id AND sp.id = {$_GET['id']}
-                    LEFT JOIN tbl_nguoidung AS nd ON sp.nguoitao=nd.id AND sp.id = {$_GET['id']}"));
-    
+                    LEFT JOIN tbl_nguoidung AS nd ON sp.nguoitao=nd.id AND sp.id = {$_GET['id']}
+                    WHERE sp.id = {$_GET['id']}"));
+
     if(isset($_POST['sua'])){
         $tensp = $_POST['tensp'];
         $masp = $_POST['masp'];

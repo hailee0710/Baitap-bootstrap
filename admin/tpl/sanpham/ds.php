@@ -51,7 +51,7 @@
         <td><?php echo $stt?></td>
         <td><div class="bv"><?php echo substr($r -> tensp, 0, 100).'...'?></div></td>
         <td><div class="bv"><?php echo $r -> gia?></div></td>
-        <td><div class="bv"><img src="../images/<?php echo $r -> anh?>" alt="anhbv" class="img-responsive"></div></td>
+        <td><div class="bv"><img src="../images/<?php echo $r -> anh?>" alt="anhbv" class="img-responsive" style="width: 70px;"></div></td>
         <td><div class="bv"><?php echo substr($r -> mota, 0, 100).'...'?></div></td>
         <td><div class="bv"><?php echo $r -> tenchuyenmuc?></div></td>
         <td>

@@ -5,7 +5,8 @@
                         nd.tenhienthi AS tacgia 
                     FROM tbl_baiviet AS bv 
                     LEFT JOIN tbl_chuyenmuc AS cm ON bv.chuyenmuc=cm.id AND bv.id = {$_GET['id']}
-                    LEFT JOIN tbl_nguoidung AS nd ON bv.nguoiviet=nd.id AND bv.id = {$_GET['id']}"));
+                    LEFT JOIN tbl_nguoidung AS nd ON bv.nguoiviet=nd.id AND bv.id = {$_GET['id']}
+                    WHERE bv.id = {$_GET['id']}"));
     
     if(isset($_POST['sua'])){
         $tieude = $_POST['tieude'];
